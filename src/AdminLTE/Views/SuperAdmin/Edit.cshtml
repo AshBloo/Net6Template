@@ -1,0 +1,92 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>@Model.FirstName  @Model.LastName</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" asp-controller="SuperAdmin" asp-action="Edit" asp-antiforgery="true" class="form-horizontal" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Id">Id: </label>
+                <div class="col-sm-12">
+                    <input class="form-control" asp-for="Id" disabled />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="FirstName">Forename: </label>
+                <div class="col-sm-12">
+                    <input class="form-control" asp-for="FirstName" />
+                </div>
+                <label class="control-label col-sm-2" asp-for="LastName">Surname: </label>
+                <div class="col-sm-12">
+                    <input class="form-control" asp-for="LastName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" asp-for="Email">Email:</label>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" asp-for="Email" />
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label col-sm-4" asp-for="AvatarURL">User Image:</label>
+                <div class="col-sm-12">
+                  <div class="panel-body text-center">
+                    <img src="@Model.AvatarURL" width="200" class="avatar avatar-img img-circle profile-avatar" alt="User avatar">
+                </div>
+                    @*<input type="image" class="form-control" asp-for="AvatarURL" />*@
+                </div>
+            </div>
+            <div class="mb-3">
+                @*<label for="formFile" class="form-label">Default file input example</label>*@
+                <input class="form-control"  type="file" asp-for="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" >
+                <label class="control-label col-sm-6" asp-for="AvatarURL">Uploaded Image:</label>
+                <br />
+                  <div class="panel-body text-center">
+                <img id="output" width="200" class="avatar avatar-img img-circle profile-avatar" style="visibility:hidden"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label col-sm-6" asp-for="Position">Navigation Menu Position:</label>
+                <div class="col-sm-12">
+                    <select class="form-control" asp-for="Position">
+                        <option>Top</option>
+                        <option>Side</option>
+                    </select>
+                </div>
+                <br />
+            </div>
+            <div class="form-group align-baseline">
+                <div class="col-sm-offset-2 col-sm-12">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a class="btn btn-danger btn-flat" asp-controller="SuperAdmin" asp-action="Index">Cancel</a>
+                    <a class="btn btn-dark" asp-controller="Account" asp-action="ResetPassword" asp-id="UserId">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+   document.getElementById('output').style.visibility=document.getElementById('output').style.visibility == 'visible'? 'hidden' : 'visible';
+};
+</script>
+
+</form>
+
+
+

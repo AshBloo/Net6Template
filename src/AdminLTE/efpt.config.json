@@ -1,0 +1,213 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "HomecarerecruitmentContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "",
+   "OutputPath": "NewModels",
+   "ProjectRootNamespace": "AdminLTE",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[AlertType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Application]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationRoute]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Appointment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AppointmentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AttendeeList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Audit]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AvailableHours]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AvailableWorkgroups]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Candidate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ContactType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CoordInterview]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DBS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmploymentDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EmploymentHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FileType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FileUpload]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[HealthInformation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NewStarterForm]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Note]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NoteType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Notification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotificationOutcome]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotificationStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[NotificationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PhoneInterview]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Reference]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReferenceHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RejectionReason]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReliasTrainingData]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ShadowShifts]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatementOfOffenses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatementOfOffensesAddressList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatementOfOffensesNameList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Status]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskLog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskRules]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Template]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TemplateType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TrainingRecord]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserAuditEvents]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VaccineDeclaration]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReliasTrainingDataView]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "(localdb)\\MSSQLLocaldb.HomecareRecruitment",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

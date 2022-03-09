@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Message>
+
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start">
+                    <ol class="breadcrumb">
+@*
+<ol class="breadcrumb float-right">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>*@
+
+    @foreach (var message in Model)
+    {
+        if (Model.Last() == message)
+        {
+           <li class="breadcrumb-item active" aria-current="page">@message.DisplayName</li>
+        }
+        else
+        {
+            <li class="breadcrumb-item"><a href="@message.URLPath"> @message.DisplayName</a></li>
+        }
+    }
+
+                    </ol>
+                </nav>

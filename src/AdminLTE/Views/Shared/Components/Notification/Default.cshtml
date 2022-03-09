@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Notification>
+@if (Model.Count() < 1)
+{
+    @*<li class="nav-item"><a class="nav-link" href="#"> No Notifications </a></li>*@
+}
+else
+{
+    <!-- Default dropstart button -->
+    <li class="menu-item has-sub ">
+        <a href="#" class="menu-link active">
+            <i class="nav-icon bi bi-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                @Model.Count()
+                <span class="visually-hidden">unread messages</span>
+
+            </span>
+        </a>
+        <div class="submenu">
+            <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+        <div class="submenu-group-wrapper">
+                <ul class="submenu-group">
+                    <li class="submenu-item">
+                        <a href="/SuperAdmin" class="submenu-link">
+                            @if (Model.Count() > 0)
+                            {
+                                string isread = "notification-list--unread";
+                                string notif = "Notifications";
+                                @if (Model.Count() < 2)
+                                {
+                                    notif = "Notification";
+                                }
+                                <div class="notification-ui_dd-header">
+                                    <h6 class="text-center">@Model.Count() @notif</h6>
+                                </div>
+                                @foreach (var message in Model)
+                                {
+                                    long tempid = message.NotificationId;
+                                    <a asp-action="Details" asp-controller="Notifications" asp-route-id="@message.NotificationId" class="dropdown-item pull-right">
+
+                                        <!-- start notification -->
+                                        @if (message.IsRead != false)
+                                        {
+                                            isread = "";
+                                        }
+                                        <div class="notification-ui_dd-content">
+                                            <div class="notification-list @isread" style="width:100%;">
+                                                <div class="notification-list_img pt-4 pr-4">
+                                                    <i class="bi bi-lightbulb fs-2 " style="color:#666;"></i>
+                                                </div>
+                                                <div class="notification-list_detail">
+                                                    <span><strong>Task Type: </strong>@message.NotificationType.TypeName</span><br />
+                                                    <span style="white-space:normal"><strong>Candidate: </strong>@message.CandidateName </span><br />
+                                                    <span style="white-space:normal"><strong>Subject: </strong> @message.Subject</span><span style="white-space:normal"><strong>Title: </strong> @message.Title</span>
+                                                </div>
+                                                <div class="notification-list_feature-img">
+                                                    <i class="bi bi-caret-right fs-3"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                }    <div class="notification-ui_dd-footer">
+                                    <a asp-action="Index" asp-controller="Notifications" class="text-center">View All</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="notification-ui_dd-header">
+                                    <h3 class="text-center">No Notifications</h3>
+                                </div>
+                            }
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+
+
+}
+

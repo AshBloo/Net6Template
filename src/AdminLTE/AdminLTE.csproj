@@ -1,0 +1,358 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>AdminLTE</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>AdminLTE</PackageId>
+    <UserSecretsId>aspnet-AdminLTE-c9131f1e-93fb-4772-8c8b-1d4c77bf4354</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewModels\**" />
+    <Compile Remove="Views\Mail\**" />
+    <Compile Remove="Views\Shared\Components\ControlSidebar\**" />
+    <Compile Remove="Views\Shared\Components\MenuMessage\**" />
+    <Compile Remove="Views\Shared\Components\MenuNotification\**" />
+    <Compile Remove="Views\Shared\Components\MenuTask\**" />
+    <Compile Remove="Views\Shared\Components\MenuUser\**" />
+    <Compile Remove="Views\Shared\Components\Note\**" />
+    <Compile Remove="Views\Shared\Components\Notification\**" />
+    <Content Remove="NewModels\**" />
+    <Content Remove="Views\Mail\**" />
+    <Content Remove="Views\Shared\Components\ControlSidebar\**" />
+    <Content Remove="Views\Shared\Components\MenuMessage\**" />
+    <Content Remove="Views\Shared\Components\MenuNotification\**" />
+    <Content Remove="Views\Shared\Components\MenuTask\**" />
+    <Content Remove="Views\Shared\Components\MenuUser\**" />
+    <Content Remove="Views\Shared\Components\Note\**" />
+    <Content Remove="Views\Shared\Components\Notification\**" />
+    <EmbeddedResource Remove="NewModels\**" />
+    <EmbeddedResource Remove="Views\Mail\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\ControlSidebar\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\MenuMessage\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\MenuNotification\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\MenuTask\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\MenuUser\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\Note\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\Notification\**" />
+    <None Remove="NewModels\**" />
+    <None Remove="Views\Mail\**" />
+    <None Remove="Views\Shared\Components\ControlSidebar\**" />
+    <None Remove="Views\Shared\Components\MenuMessage\**" />
+    <None Remove="Views\Shared\Components\MenuNotification\**" />
+    <None Remove="Views\Shared\Components\MenuTask\**" />
+    <None Remove="Views\Shared\Components\MenuUser\**" />
+    <None Remove="Views\Shared\Components\Note\**" />
+    <None Remove="Views\Shared\Components\Notification\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Coravel\Invokable\NightlyReportMailable.cs" />
+    <Compile Remove="Coravel\Invokable\SendDailyReportsEmailJob.cs" />
+    <Compile Remove="Coravel\Invokable\SendNightlyReportsEmailJob.cs" />
+    <Compile Remove="Data\MopDbContext.cs" />
+    <Compile Remove="Interface\IHangfireJobs.cs" />
+    <Compile Remove="Models\Audit.cs" />
+    <Compile Remove="Models\HomecarerecruitmentContext.cs" />
+    <Compile Remove="Services\HangfireDashboardAuthorizationFilter.cs" />
+    <Compile Remove="ViewComponents\MenuMessageViewComponent.cs" />
+    <Compile Remove="ViewComponents\MenuTaskViewComponent.cs" />
+    <Compile Remove="ViewComponents\MenuUserViewComponent.cs" />
+    <Compile Remove="ViewComponents\NoteViewComponent.cs" />
+    <Compile Remove="ViewComponents\NotificationViewComponent.cs" />
+    <Compile Remove="ViewComponents\SweetAlertViewComponent.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\Components\Sidebar\Default - Copy.cshtml" />
+    <Content Remove="Views\Shared\_Layout - Copy %282%29.cshtml" />
+    <Content Remove="Views\Shared\_Layout - Copy %283%29.cshtml" />
+    <Content Remove="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Remove="Views\Shared\_Layout1.cshtml" />
+    <Content Remove="Views\Shared\_Layoutn.cshtml" />
+    <Content Remove="Views\Shared\_LayoutO.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="wwwroot\**\*;Views\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Coravel.Mailer" Version="4.0.0" />
+    <PackageReference Include="Coravel.Pro" Version="4.0.2" />
+    <PackageReference Include="Hangfire" Version="1.7.27" />
+    <PackageReference Include="Linq.Extras" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="BundlerMinifier.Core" Version="3.2.449" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.14" />
+  </ItemGroup>
+
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="dotnet bundle" />
+  </Target>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.8.391" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\vendors\NewFolder\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales-all.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales-all.min.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\af.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-dz.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-kw.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-ly.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-ma.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-sa.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar-tn.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ar.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\az.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\bg.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\bn.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\bs.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ca.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\cs.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\cy.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\da.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\de-at.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\de.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\el.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\en-au.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\en-gb.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\en-nz.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\eo.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\es-us.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\es.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\et.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\eu.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\fa.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\fi.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\fr-ca.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\fr-ch.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\fr.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\gl.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\he.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\hi.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\hr.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\hu.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\hy-am.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\id.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\is.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\it.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ja.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ka.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\kk.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\km.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ko.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ku.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\lb.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\lt.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\lv.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\mk.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ms.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\nb.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ne.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\nl.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\nn.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\pl.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\pt-br.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\pt.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ro.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ru.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\si-lk.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sk.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sl.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sm.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sq.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sr-cyrl.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sr.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\sv.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ta-in.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\th.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\tr.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\ug.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\uk.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\uz.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\vi.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\zh-cn.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\locales\zh-tw.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\main.js" />
+    <None Include="wwwroot\assets\vendors\fullcalendar\main.min.js" />
+    <None Include="wwwroot\assets\vendors\moment\locales.js" />
+    <None Include="wwwroot\assets\vendors\moment\locales.min.js" />
+    <None Include="wwwroot\assets\vendors\moment\locales.min.js.map" />
+    <None Include="wwwroot\assets\vendors\moment\locale\af.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-dz.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-kw.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-ly.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-ma.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-sa.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar-tn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ar.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\az.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\be.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bg.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bm.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bn-bd.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\br.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\bs.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ca.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\cs.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\cv.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\cy.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\da.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\de-at.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\de-ch.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\de.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\dv.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\el.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-au.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-ca.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-gb.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-ie.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-il.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-in.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-nz.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\en-SG.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\eo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\es-do.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\es-mx.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\es-us.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\es.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\et.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\eu.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fa.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fi.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fil.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fr-ca.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fr-ch.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fr.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\fy.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ga.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\gd.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\gl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\gom-deva.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\gom-latn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\gu.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\he.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\hi.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\hr.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\hu.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\hy-am.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\id.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\is.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\it-ch.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\it.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ja.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\jv.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ka.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\kk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\km.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\kn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ko.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ku.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ky.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\lb.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\lo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\lt.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\lv.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\me.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\mi.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\mk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ml.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\mn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\mr.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ms-my.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ms.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\mt.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\my.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\nb.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ne.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\nl-be.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\nl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\nn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\oc-lnc.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\pa-in.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\pl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\pt-br.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\pt.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ro.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ru.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sd.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\se.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\si.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sq.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sr-cyrl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sr.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ss.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sv.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\sw.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ta.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\te.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tet.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tg.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\th.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tl-ph.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tlh.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tr.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tzl.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tzm-latn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\tzm.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ug-cn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\uk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\ur.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\uz-latn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\uz.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\vi.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\x-pseudo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\yo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\zh-cn.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\zh-hk.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\zh-mo.js" />
+    <None Include="wwwroot\assets\vendors\moment\locale\zh-tw.js" />
+    <None Include="wwwroot\assets\vendors\moment\moment-with-locales.js" />
+    <None Include="wwwroot\assets\vendors\moment\moment-with-locales.min.js" />
+    <None Include="wwwroot\assets\vendors\moment\moment-with-locales.min.js.map" />
+    <None Include="wwwroot\assets\vendors\moment\moment.min.js" />
+    <None Include="wwwroot\assets\vendors\moment\moment.min.js.map" />
+  </ItemGroup>
+
+</Project>

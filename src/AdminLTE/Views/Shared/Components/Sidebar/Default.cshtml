@@ -1,0 +1,164 @@
+﻿@model IEnumerable<AdminLTE.Models.SidebarMenu>
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="header-top">
+    <div class="container">
+        <div class="logo">
+            <a href="~/">
+                @*<img src="assets/images/logo/logo.png" alt="Logo" srcset="">*@
+                <a asp-Controller="Home" asp-action="Index">  <svg viewBox="0 0 700.52533 275.57333" id="svgi15573115671" version="1.1" xml:space="preserve" width=50% height=100% alignment-baseline="central" cx="250" preserveAspectRatio="xMinYMin"><defs></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,333.04266)"><g transform="scale(0.1)"><path d="M 0,1131.51 H 129.41 V 531.852 h 254.883 v -82 H 0 v 681.658" style="fill:#364a72;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 628.305,485.422 c 81.996,0 86.933,95.828 86.933,199.558 0,103.731 -4.937,199.559 -86.933,199.559 -81.008,0 -87.93,-95.828 -87.93,-199.559 0,-103.73 6.922,-199.558 87.93,-199.558 z M 410.965,684.98 c 0,178.809 83.973,245.989 217.34,245.989 133.367,0 216.351,-67.18 216.351,-245.989 0,-178.808 -82.984,-246 -216.351,-246 -133.367,0 -217.34,67.192 -217.34,246" style="fill:#364a72;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 1300.08,467.629 c -48.41,-17.777 -85.95,-28.649 -146.21,-28.649 -137.33,0 -245.007,76.079 -245.007,264.77 0,135.34 65.2,227.219 212.397,227.219 139.3,0 181.78,-63.231 181.78,-169.93 H 1175.6 c 0,82.992 -7.9,123.5 -59.27,123.5 -54.34,0 -78.05,-73.109 -78.05,-140.289 0,-122.5 61.25,-244.012 168.93,-244.012 36.56,0 64.22,7.903 92.87,17.782 v -50.391" style="fill:#364a72;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 1608.3,667.191 c -40.51,-3.953 -143.26,-16.793 -143.26,-93.851 0,-39.508 19.76,-66.192 54.34,-66.192 56.31,0 88.92,59.282 88.92,125.473 z m 0,-155.101 h -1.98 c -12.84,-22.719 -59.28,-73.11 -133.37,-73.11 -74.09,0 -131.39,49.399 -131.39,117.571 0,145.219 199.56,154.109 266.74,157.078 v 79.031 c 0,69.16 -20.75,91.879 -59.28,91.879 -62.24,0 -61.25,-74.09 -63.23,-104.719 h -127.44 c 0,98.789 66.19,151.149 191.66,151.149 148.18,0 177.82,-69.149 177.82,-163.008 V 449.852 H 1608.3 v 62.238" style="fill:#364a72;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 1821.02,449.852 h 119.539 v 681.66 H 1821.02 Z" style="fill:#364a72;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 2443.4,1038.59 c -30.63,13.83 -96.82,41.5 -163.01,41.5 -71.13,0 -119.54,-41.5 -119.54,-99.781 0,-98.789 126.46,-126.457 216.35,-185.727 74.1,-49.402 110.65,-81.023 110.65,-169.934 0,-134.347 -106.69,-193.628 -241.05,-193.628 -80.02,0 -141.27,15.812 -158.06,20.75 v 84.96 c 35.56,-16.8 104.71,-47.421 170.9,-47.421 85.95,0 140.29,41.492 140.29,119.543 0,95.828 -103.73,129.41 -204.5,184.738 -60.26,32.601 -113.62,79.031 -113.62,168.93 0,109.66 83.98,171.9 214.39,171.9 53.34,0 119.53,-10.87 147.2,-16.8 v -79.03" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 2737.46,470.539 c 101.75,0 122.5,101.75 122.5,198.57 0,102.75 -20.75,214.379 -122.5,214.379 -100.77,0 -117.57,-111.629 -117.57,-214.379 0,-96.82 16.8,-198.57 117.57,-198.57 z M 2537.9,672.07 c 0,150.168 59.27,250.942 199.56,250.942 140.27,0 204.49,-100.774 204.49,-250.942 0,-152.14 -64.22,-241.05 -204.49,-241.05 -140.29,0 -199.56,88.91 -199.56,241.05" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 3016.03,441.891 h 73.1094 v 681.66 H 3016.03 Z" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 3451.04,556.488 h -1.98 c -45.43,-96.816 -75.07,-125.468 -168.93,-125.468 -78.05,0 -112.62,83.968 -112.62,145.23 v 335.891 h 73.1 V 607.859 c 0,-50.39 20.75,-116.57 83.98,-116.57 85.94,0 124.47,128.422 124.47,219.32 v 201.532 h 73.11 v -470.25 h -71.13 v 114.597" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 3865.96,434.969 c -23.71,-3.949 -38.53,-3.949 -58.28,-3.949 -96.83,0 -141.28,33.589 -140.29,118.562 v 317.117 h -82.98 v 45.442 h 82.98 v 110.649 l 73.1,44.45 V 912.141 h 128.43 V 866.699 H 3740.49 V 588.102 c -0.99,-55.321 0,-109.653 81.01,-109.653 24.7,0 35.57,2.961 44.46,5.922 v -49.402" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 3933.45,912.141 h 73.11 v -470.25 h -73.11 z m -4.93,211.409 h 82.98 v -88.91 h -82.98 v 88.91" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 4267.03,470.539 c 101.76,0 122.51,101.75 122.51,198.57 0,102.75 -20.75,214.379 -122.51,214.379 -100.76,0 -117.56,-111.629 -117.56,-214.379 0,-96.82 16.8,-198.57 117.56,-198.57 z M 4067.48,672.07 c 0,150.168 59.27,250.942 199.55,250.942 140.28,0 204.5,-100.774 204.5,-250.942 0,-152.14 -64.22,-241.05 -204.5,-241.05 -140.28,0 -199.55,88.91 -199.55,241.05" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 4542.65,912.141 h 71.12 v -115.59 h 1.98 c 28.65,59.281 76.08,126.461 168.94,126.461 81.99,0 112.61,-71.133 112.61,-123.492 V 441.891 h -73.1 v 304.281 c 0,50.379 0,116.566 -65.2,116.566 -98.79,0 -143.25,-128.429 -143.25,-219.308 V 441.891 h -73.1 v 470.25" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 5223.31,836.07 c -15.81,8.891 -64.21,37.539 -119.54,37.539 -42.47,0 -81.01,-17.777 -81.01,-56.308 0,-56.313 68.18,-72.121 150.17,-121.512 45.44,-26.68 81.01,-59.277 81.01,-125.469 0,-73.101 -52.37,-139.3 -175.85,-139.3 -64.22,0 -104.73,10.871 -127.44,19.761 v 74.098 c 9.88,-5.938 70.14,-44.457 131.38,-44.457 54.34,0 98.8,22.726 98.8,76.066 0,47.422 -45.44,66.192 -100.76,98.793 -59.28,34.578 -127.45,59.278 -127.45,139.301 0,81.008 54.34,128.43 161.03,128.43 49.4,0 90.9,-12.852 109.66,-16.801 V 836.07" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path><path d="m 1395.48,2497.82 c 89.62,-115.11 145.03,-273.75 145.03,-448.94 0,-321.37 -186.41,-586.98 -428.61,-630.32 l -5.72,64.77 c 62.75,24.69 107.23,85.7 107.23,157.21 0,93.37 -75.68,169.05 -169.04,169.05 -93.358,0 -169.038,-75.68 -169.038,-169.05 0,-71.13 43.988,-131.88 106.199,-156.83 l -8.508,-65.24 c -242.48,43.03 -429.187,308.79 -429.187,630.41 0,169.04 51.668,322.58 135.805,436.57 -147.766,-140.58 -243.368,-364.42 -243.368,-616.59 0,-425.57 272.258,-770.56 608.107,-770.56 335.84,0 608.1,344.99 608.1,770.56 0,259.79 -101.56,489.37 -257,628.96" style="fill:#5595d6;fill-opacity:1;fill-rule:nonzero;stroke:none"></path></g></g></svg></a>
+            </a>
+        </div>
+        <div class="header-top-left">
+            <!-- Burger button responsive -->
+            <a href="~/#" class="burger-btn d-block d-xl-none"> <i class="bi bi-justify fs-3"></i> </a>
+        </div>
+         <div class="header-top-right">                       
+                <div class="page-heading" style="margin-bottom:2.5rem">
+                         <h3 class="text-center">@ViewData["Title"]&nbsp;&nbsp;<i class="@ViewData["Icon"] fs-3"></i></h3> 
+                                              <div class="btn-group float-end" role="group">
+
+                                    <button type="button" class="btn btn-sm btn-success dropdown-toggle float-end mp-2" data-bs-toggle="dropdown">
+                                        New Application
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right dropdown-menu-wide">
+                                        <li>             
+                                            <a onclick="showInPopup('@Url.Action("CreateOnline","Applications",
+                                                            new { returnUrl = "/Applications/Details/" },
+                                                            Context.Request.Scheme)','New Online Application')" class=
+                                                            "dropdown-item w-10"  style="width:100%" >
+                                                                Online
+                                                            </a>
+                                        </li>
+                                            <li>             
+                                            <a onclick="showInPopup('@Url.Action("CreateTelphone","Applications",
+                                                            new { returnUrl = "/Applications/Details/" },
+                                                            Context.Request.Scheme)','New Telephone Application')" class=
+                                                            "dropdown-item w-10"  style="width:100%" >
+                                                                Telephone
+                                                            </a>
+                                        </li>
+                                                             <li>             
+                                            <a onclick="showInPopup('@Url.Action("CreateInPerson","Applications",
+                                                            new { returnUrl = "/Applications/Details/" },
+                                                            Context.Request.Scheme)','New In Person Application')" class=
+                                                            "dropdown-item w-10"  style="width:100%" >
+                                                                In Person
+                                                            </a>
+                                        </li>
+                                    </ul>
+                              
+                               <a asp-action="index" asp-controller="Home" asp-area="Branch" class="btn btn-sm btn-primary float-end mp-2">Branch View</a>
+                                 </div>
+                                 <br />
+                               @await Component.InvokeAsync("Breadcrumb")
+                </div>            
+
+
+        </div>
+    </div>
+</div>
+<nav class="main-navbar" id="navbar_top">
+    <div class="container">
+        <ul>
+            @foreach (var menu in Model as IEnumerable<SidebarMenu>)
+            {
+                if (menu.Type == SidebarMenuType.Header)
+                {
+                    //<li class="text-white">@menu.Name |</li>
+                }
+                else if (menu.Type == SidebarMenuType.Link)
+                {
+                    var active = string.Empty;
+                    if (menu.URLPath != "/" && @Context.Request.Path.Value.Contains(menu.URLPath))
+                    {
+                        active = "active";
+                    }
+
+
+                    //MENU ITEM
+
+                                    <li class="menu-item">
+                                        <a href="@menu.URLPath" class="menu-link @active">
+                                            <i class="@menu.IconClassName"></i>
+                            @menu.Name
+                                            <span class="pull-right-container">
+                                @{
+                                    if (menu.LinkCounter.Item1 > 0)
+                                    {
+                                                                        <small class="badge float-right bg-dark rounded-pill">@menu.LinkCounter.Item1</small>
+                                    }
+                                    if (menu.LinkCounter.Item2 > 0)
+                                    {
+                                                                        <small class="badge float-right bg-secondary rounded-pill">@menu.LinkCounter.Item2</small>
+                                    }
+                                    if (menu.LinkCounter.Item3 > 0)
+                                    {
+                                                                        <small class="badge float-right bg-info rounded-pill text-black">@menu.LinkCounter.Item3</small>
+                                    }
+                                }
+                                            </span>
+                                        </a>
+                                    </li>
+
+                }
+                else if (menu.Type == SidebarMenuType.Tree)
+                {
+                    var active = string.Empty;
+                    var menuopen = string.Empty;
+                    var menuclose = string.Empty;
+                    if (menu.TreeChild.Any(x => @Context.Request.Path.Value.Contains(x.URLPath)))
+                    {
+                        active = "active";
+                        menuopen = "menu-open";
+                        menuclose = "menu-close";
+                    }
+                             //SUB MENU
+                                    <li class="menu-item has-sub ">
+                                        <a href="#" class="menu-link @active">
+                                            <i class="nav-icon @menu.IconClassName"></i>@menu.Name
+                                        </a>
+                                        <div class="submenu">
+                                            <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                    <div class="submenu-group-wrapper">
+                                                <ul class="submenu-group">
+                                    @foreach (SidebarMenu subMenu in menu.TreeChild)
+                                    {
+                                        active = string.Empty;
+                                        if (Context.Request.Path.Value.EndsWith(subMenu.URLPath))
+                                        {
+                                            active = "active";
+                                        }
+                                                                <li class="submenu-item">
+                                                                    <a href="@subMenu.URLPath" class='submenu-link'>
+                                                                        <i class="@subMenu.IconClassName nav-icon pr-2"></i>
+                                                @subMenu.Name
+                                                                    </a>
+
+                                                                </li>
+                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                }
+            }
+
+            <li class="menu-item">
+                <a asp-action="Edit" asp-controller="SuperAdmin" asp-route-id="@User.GetUserId().ToString()" class="menu-link">
+                    <i class="bi bi-person-square"></i>
+                    <small>@User.GetUserProperty(CustomClaimTypes.GivenName) @User.GetUserProperty(CustomClaimTypes.Surname)</small>
+                </a>
+            </li>
+            @*@await Component.InvokeAsync("Notification")*@
+
+                        <li class="menu-item start-end">
+                            <a asp-action="logout" asp-controller="Account" asp-route-id="@User.GetUserId().ToString()" class="menu-link">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <small>Sign Out</small>
+                            </a>
+                        </li>
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Message>
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Toastr -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<!-- Styles -->
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "400",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+@*	<style type="text/css">
+		body {background: whitesmoke;text-align: center;}
+		button{background-color: darkslategrey;color: white;border: 0;font-size: 18px;font-weight: 500;border-radius: 7px;padding: 10px 10px;cursor: pointer;white-space: nowrap;}
+		#success{background: green;}
+		#error{background: red;}
+		#warning{background: coral;}
+		#info{background: cornflowerblue;}
+		#question{background: grey;}
+	</style>*@
+@foreach (var item in Model)
+{
+
+    if (item.Type.ToString().ToLower() == "error")
+    {
+        <script>
+            $(document).ready(function () {
+                toastr.error('@item.ShortDesc', '@item.Title');
+             });
+        </script>
+    }
+
+    if (item.Type.ToString().ToLower() == "info")
+    {
+        <script>
+            $(document).ready(function () {
+                toastr.info('@item.ShortDesc', '@item.Title');
+             });
+        </script>
+    }
+
+    if (item.Type.ToString().ToLower() == "warning")
+    {
+        <script>
+            $(document).ready(function () {
+                toastr.warning('@item.ShortDesc', '@item.Title');
+             });
+        </script>
+    }
+
+    if (item.Type.ToString().ToLower() == "success")
+    {
+        <script>
+            $(document).ready(function () {
+                toastr.success('@item.ShortDesc', '@item.Title');
+             });
+        </script>
+    }
+    
+    if (item.Type.ToString().ToLower() == "question")
+    {
+        <script>
+            $(document).ready(function () {
+                toastr.question('@item.ShortDesc', '@item.Title');
+             });
+        </script>
+    }
+    //TempData["Title"] = item.Title;
+    //TempData["Message"] = item.ShortDesc;
+    //TempData["Type"] = item.Type;
+}

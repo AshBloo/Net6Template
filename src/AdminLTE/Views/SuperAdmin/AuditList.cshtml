@@ -1,0 +1,368 @@
+﻿@using AdminLTE.Models
+@using AdminLTE.Data
+@model IEnumerable<Audit>
+
+
+
+
+    @inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Audit Logs";
+    ViewData["Icon"] = "bi bi-file-earmark-person";
+
+}
+
+<script>
+    $(function () {
+        otable = $('#myTable').dataTable({
+        dom: 'Bfrtip',
+        lengthMenu: [[50, 75, 150, -1], [50, 75, 150, "All"]],
+        lengthChange: true,
+        //responsive: true,
+          buttons: [ 'copy', 'print', 'excel', 'pdf', 'colvis' ],
+
+        });
+    })
+    function filterme() {
+    //build a regex filter string with an or(|) condition
+    var branch = $('input:checkbox[name="Branch"]:checked').map(function () {
+    return '^' + this.value + '\$';
+    }).get().join('|');
+    //filter in column 3, with an regex, no smart filtering, no inputbox,not case sensitive
+    otable.fnFilter(branch, 2, true, false, false, false);
+        //build a regex filter string with an or(|) condition
+    var type = $('input:checkbox[name="Type"]:checked').map(function () {
+    return '^' + this.value + '\$';
+    }).get().join('|');
+    //filter in column 3, with an regex, no smart filtering, no inputbox,not case sensitive
+    otable.fnFilter(type, 10, true, false, false, false);
+            //build a regex filter string with an or(|) condition
+    var job = $('input:checkbox[name="Job"]:checked').map(function () {
+    return '^' + this.value + '\$';
+    }).get().join('|');
+    //filter in column 3, with an regex, no smart filtering, no inputbox,not case sensitive
+    otable.fnFilter(job, 5, true, false, false, false);
+        //build a regex filter string with an or(|) condition
+    var user = $('input:radio[name="User"]:checked')[0].value;
+    //filter in column 3, with an regex, no smart filtering, no inputbox,not case sensitive
+    otable.fnFilter(user, 19, true, false, false, false);
+    //use radio values
+    var status = $('input:radio[name="status"]:checked')[0].value;
+    //now filter in column 6, with no regex, no smart filtering, no inputbox,not case sensitive
+    otable.fnFilter(status, 1, false, false, false, false);
+    }
+</script>
+
+
+
+<style>
+    .dataTables_filter {
+        float: left !important;
+    }
+
+    .dt-buttons {
+        float: right !important;
+    }
+</style>
+
+<style>
+    input {
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        margin: 0;
+        vertical-align: bottom;
+        position: relative;
+        top: -1px;
+    }
+
+          table td {
+        border: solid 1px Silver;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+               table th {
+        border: solid 1px Silver;
+        width: 110px;
+        word-wrap: break-word;
+      }
+</style>
+
+<div class="row">
+    <div class="col-2 pl-2">
+   @*     <header>
+            <h4>Branch Filters</h4>
+        </header>
+        <input onchange="filterme()" type="checkbox" name="Branch" value="Knowsley" class="larger">  Knowsley
+        <br />
+        <input onchange="filterme()" type="checkbox" name="Branch" value="Liverpool" class="larger">  Liverpool
+        <br />
+        <input onchange="filterme()" type="checkbox" name="Branch" value="Sefton" class="larger">  Sefton
+        <br />
+        <input onchange="filterme()" type="checkbox" name="Branch" value="St Helens" class="larger">  St Helens
+        <br />
+        <input onchange="filterme()" type="checkbox" name="Branch" value="Wirral" class="larger">  Cherry Tree
+
+        <header class="pt-3">
+            <h4>Status Filters</h4>
+        </header>
+        <input onchange="filterme()" type="radio" name="status" value="1" class="larger pr-2">  Stage 1
+        <br />
+        <input onchange="filterme()" type="radio" name="status" value="3" class="larger">  Stage 2
+        <br />
+        <input onchange="filterme()" type="radio" name="status" value="5" class="larger">  Stage 3
+        <br />
+        <input onchange="filterme()" type="radio" name="status" value="6" class="larger">  Stage 4
+        <br />
+        <input onchange="filterme()" type="radio" name="status" value="" class="larger">  All
+        <br />
+        <div class="btn-group-vertical pt-3" role="group" aria-label="Vertical button group">
+            <header class="pt-3">
+                <h4>New Application</h4>
+            </header>
+            <a asp-action="CreateO" asp-controller="Applications" asp-route-pop="true" class="btn btn-sm btn-success btn-block">Online&nbsp&nbsp<i class="fas fa-plus pl-1"></i></a>
+            <a asp-action="CreateT" asp-controller="Applications" asp-route-pop="true" class="btn btn-sm btn-success btn-block">Telephone&nbsp&nbsp<i class="fas fa-plus pl-1"></i></a>
+            <a asp-action="CreateI" asp-controller="Applications" asp-route-pop="true" class="btn btn-sm btn-success btn-block">In-Person&nbsp&nbsp<i class="fas fa-plus pl-1"></i></a>
+
+        </div>*@
+    
+          <div class="dtsp-verticalPanes"></div>
+    </div>
+    <div class="col-9">
+        
+<table class="table" id="example" style="width:100%">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>User</th>
+                <th>Table Name</th>
+                <th>Audit Type</th>
+                <th>Row ID</th>
+                <th>Changed</th>
+                <th>UTC Time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rec in Model)
+            {
+                <tr Id="@rec.Id" @*@(rec.AuditType == "Deleted" ? String.Empty : "class=alert-danger" )*@>
+
+                    <td>@rec.Id</td>
+                    <td>
+                        @rec.AuditUser
+                    </td>
+                    <td>
+                        @rec.TableName
+                    </td>
+                       <td>
+                        @rec.AuditType
+                    </td>
+                      <td>
+                        @rec.KeyValues
+                    </td>
+                      <td>
+                        @rec.ChangedColumns
+                    </td>
+                    <td>
+                        @rec.AuditDateTimeUtc.ToLocalTime()
+                    </td>
+                    <td>
+                        <a href="#" onClick="GetAuditHistory('@rec.Id')" class="btn btn-primary">View</a>
+                        <a href="#" onClick="GetAuditHistory('@rec.Id')" class="btn btn-success">Restore</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
+
+@*<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "lengthMenu": [[50, 75, 150, -1], [50, 75, 150, "All"]]
+        });
+    });
+</script>*@
+
+
+
+
+
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Audit history</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="audit"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/pages/AuditList.js"></script>
+
+
+    <script>
+$(document).ready( function () {
+  var table = $('#example').DataTable({
+        dom: 'Plfrtip',
+               lengthMenu: [[50, 75, 150, -1], [50, 75, 150, "All"]],
+        lengthChange: true,
+        responsive: true,
+          buttons: [ 'copy', 'print', 'excel', 'pdf', 'colvis' ],
+ 
+        columnDefs: [
+            {
+                searchPanes: {
+                    show: true
+                },
+                targets: [1]
+            },
+            {
+                searchPanes: {
+                    show: false
+                },
+                targets: [0, 4,5,6]
+            }
+        ],
+           buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        searchPanes: {
+            layout: 'columns-1'
+        },
+        dom: '<"dtsp-dataTable"frtip>',
+        pageLength: 50,
+    });
+  table.searchPanes()
+  $("div.dtsp-verticalPanes").append(table.searchPanes.container());
+} );
+    </script>
+
+ @*   <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/gridjs-jquery/dist/gridjs.production.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" />
+
+    <title>Grid.js + jQuery</title>
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/gridjs-jquery/dist/gridjs.development.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    />
+ 
+    <h1>
+      Grid.js + jQuery
+    </h1>
+    <div id="wrapper"></div>
+
+    <script>
+      $("div#wrapper").Grid({
+        search: true,
+        pagination: true,
+        sort: true,
+        columns: ["Name", "Age", "Email"],
+        //data: [
+        //  ["John", 25, "john@k.com"],
+        //  ["Mark", 59, "mark@e.com"]
+        //  // ...
+        //]
+        data:  ["AccessFailedCount","AvatarURL","ConcurrencyStamp","DateRegistered","Email","EmailConfirmed","FirstName","LastName","LockoutEnabled","LockoutEnd","NickName","NormalizedEmail","NormalizedUserName","PasswordHash","PhoneNumber","PhoneNumberConfirmed","Position","SecurityStamp","TwoFactorEnabled","UserName"]
+      });
+    </script>*@
+
+  @*
+  
+  JSON TO TABLE JS LOOP.  
+  
+  <div class="container">
+  <div class="page-header">
+    <h1>JSON to Table</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="data">Data</label>
+        <textarea name="data" id="data" rows="20" class="form-control"></textarea>
+      </div><!-- form-group -->
+    </div><!-- /col -->
+    <div id="tableGoesHere" class="col-md-6">
+      
+    </div><!-- col -->
+  </div><!-- /row -->
+</div><!-- container -->
+<script>
+    
+function json2table(json, classes) {
+  var cols = Object.keys(json[0]);
+  
+  var headerRow = '';
+  var bodyRows = '';
+  
+  classes = classes || '';
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  cols.map(function(col) {
+    headerRow += '<th>' + capitalizeFirstLetter(col) + '</th>';
+  });
+
+  json.map(function(row) {
+    bodyRows += '<tr>';
+
+    cols.map(function(colName) {
+      bodyRows += '<td>' + row[colName] + '</td>';
+    })
+
+    bodyRows += '</tr>';
+  });
+
+  return '<table class="' +
+         classes +
+         '"><thead><tr>' +
+         headerRow +
+         '</tr></thead><tbody>' +
+         bodyRows +
+         '</tbody></table>';
+}
+
+/* How to use it */
+
+var defaultData = [
+  { country: 'China',         population: 1379510000 },
+  { country: 'India',         population: 1330780000 },
+  { country: 'United States', population:  324788000 },
+  { country: 'Indonesia',     population:  260581000 },
+  { country: 'Brazil',        population:  206855000 },
+];
+
+document.getElementById('tableGoesHere').innerHTML = json2table(defaultData, 'table');
+
+/* Live example */
+
+var dom = {
+  data: document.getElementById('data'),
+  table: document.getElementById('tableGoesHere'),
+};
+
+dom.data.value = JSON.stringify(defaultData);
+dom.data.addEventListener('input', function() {
+  dom.table.innerHTML = json2table(JSON.parse(dom.data.value), 'table');
+});
+
+</script>*@
